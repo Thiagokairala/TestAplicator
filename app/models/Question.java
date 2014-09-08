@@ -1,32 +1,39 @@
 package models;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 
 import play.data.validation.Constraints.Required;
 import play.db.ebean.Model;
+import types.Subject;
+import enums.QuestionStatus;
+import enums.QuestionType;
 
 @Entity
-public class Question extends Model {
+public abstract class Question extends Model {
+
 	@Id
 	@GeneratedValue
 	public long questionId;
-	@OneToOne(mappedBy = "subject")
-	@JoinColumn(name = "subjectId")
-	public long subjectId;
+
+	@OneToMany(cascade = CascadeType.ALL)
+	public Subject subject;
+
 	public QuestionStatus questionStatus;
+
 	@Required
 	@Column(nullable = false)
 	public String orientation;
+
 	public QuestionType questionType;
 
-	public Question(long subjectId, QuestionStatus questionStatus,
+	public Question(Subject subject, QuestionStatus questionStatus,
 			String orientation, QuestionType questionType) {
-		this.subjectId = subjectId;
+		this.subject = subject;
 		this.questionStatus = questionStatus;
 		this.orientation = orientation;
 		this.questionType = questionType;

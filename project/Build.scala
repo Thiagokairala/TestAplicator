@@ -11,7 +11,8 @@ object ApplicationBuild extends Build {
     // Add your project dependencies here,
     javaCore,
     javaJdbc,
-    javaEbean
+    javaEbean,
+    "org.mockito" % "mockito-all" % "1.9.0"
   )
 
     val main = play.Project(appName, appVersion, appDependencies).settings(

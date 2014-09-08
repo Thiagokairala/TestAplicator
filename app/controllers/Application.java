@@ -1,7 +1,7 @@
 package controllers;
 
+import enums.QuestionStatus;
 import models.Question;
-import models.QuestionStatus;
 import play.*;
 import play.mvc.*;
 import views.html.*;

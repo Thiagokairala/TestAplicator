@@ -1,4 +1,4 @@
-package models;
+package enums;
 
 public enum QuestionType {
 	MULTIPLE_QUESTION(0), RIGHT_OR_WRONG_QUESTION(1), OPEN_TEXT_QUESTION(2);

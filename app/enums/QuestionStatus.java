@@ -1,4 +1,4 @@
-package models;
+package enums;
 
 public enum QuestionStatus {
 	CORRECT(true), INCORRECT(false);
