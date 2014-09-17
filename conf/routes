@@ -9,4 +9,5 @@ GET     /                           controllers.Application.index()
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
 
 # Mapping the routes for question generating
-GET		/							controllers.QuestionControl.registerQuestion()
+GET		/registerQuestion			controllers.QuestionControl.registerQuestion()
+GET		/findTypeOfQuestion			controllers.QuestionControl.findTypeOfQuestion()

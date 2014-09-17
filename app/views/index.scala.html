@@ -1,7 +1,10 @@
 @(message: String)
 
-@main("Welcome to Play 2.1") {
-    
-    @play20.welcome(message, style = "Java")
-    
+@import play.i18n._
+
+@main("application") {
+    @Messages.get("index.greeting")
+    <a href='@routes.QuestionControl.findTypeOfQuestion()'>
+    	@Messages.get("index.registerNewQuestion")
+    </a>
 }

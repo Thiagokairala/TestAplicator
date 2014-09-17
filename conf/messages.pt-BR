@@ -1,0 +1,4 @@
+index.greeting = Bem Vindo a aplição.
+index.registerNewQuestion = Cadastrar nova questão
+
+newQuestion.selectQuestionType = Selecione o tipo da questão
