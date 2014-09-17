@@ -10,11 +10,12 @@ import javax.persistence.OneToMany;
 import play.data.validation.Constraints.Required;
 import play.db.ebean.Model;
 import types.Subject;
+import enums.QuestionLevel;
 import enums.QuestionStatus;
 import enums.QuestionType;
 
 @Entity
-public abstract class Question extends Model {
+public class Question extends Model {
 
 	@Id
 	@GeneratedValue
@@ -30,13 +31,16 @@ public abstract class Question extends Model {
 	public String orientation;
 
 	public QuestionType questionType;
+	public QuestionLevel questionLevel;
 
 	public Question(Subject subject, QuestionStatus questionStatus,
-			String orientation, QuestionType questionType) {
+			String orientation, QuestionType questionType,
+			QuestionLevel questionLevel) {
 		this.subject = subject;
 		this.questionStatus = questionStatus;
 		this.orientation = orientation;
 		this.questionType = questionType;
+		this.questionLevel = questionLevel;
 	}
 
 	public static Finder<Long, Question> find = new Finder<Long, Question>(

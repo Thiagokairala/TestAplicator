@@ -5,6 +5,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 
 import types.Subject;
+import enums.QuestionLevel;
 import enums.QuestionStatus;
 import enums.QuestionType;
 
@@ -17,10 +18,10 @@ public class RightOrWrongQuestion extends Question {
 
 	public RightOrWrongQuestion(final Subject subject,
 			final QuestionStatus questionStatus, final String orientation,
-			final boolean answer) {
+			final boolean answer, final QuestionLevel questionLevel) {
 
 		super(subject, questionStatus, orientation,
-				QuestionType.RIGHT_OR_WRONG_QUESTION);
+				QuestionType.RIGHT_OR_WRONG_QUESTION, questionLevel);
 	}
 
 	public static Finder<Long, RightOrWrongQuestion> find = new Finder<Long, RightOrWrongQuestion>(

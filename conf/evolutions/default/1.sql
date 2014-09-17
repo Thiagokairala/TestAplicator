@@ -12,13 +12,14 @@ create table avaliation (
 ;
 
 create table multiple_question (
-  dtype                     varchar(10) not null,
   question_id               bigint not null,
   question_status           integer,
   orientation               varchar(255) not null,
   question_type             integer,
+  question_level            integer,
   constraint ck_multiple_question_question_status check (question_status in (0,1)),
   constraint ck_multiple_question_question_type check (question_type in (0,1,2)),
+  constraint ck_multiple_question_question_level check (question_level in (0,1,2,3)),
   constraint pk_multiple_question primary key (question_id))
 ;
 
@@ -27,8 +28,10 @@ create table question (
   question_status           integer,
   orientation               varchar(255) not null,
   question_type             integer,
+  question_level            integer,
   constraint ck_question_question_status check (question_status in (0,1)),
   constraint ck_question_question_type check (question_type in (0,1,2)),
+  constraint ck_question_question_level check (question_level in (0,1,2,3)),
   constraint pk_question primary key (question_id))
 ;
 
@@ -38,10 +41,12 @@ create table right_or_wrong_question (
   question_status           integer,
   orientation               varchar(255) not null,
   question_type             integer,
+  question_level            integer,
   text                      varchar(255),
   answer                    boolean,
   constraint ck_right_or_wrong_question_question_status check (question_status in (0,1)),
   constraint ck_right_or_wrong_question_question_type check (question_type in (0,1,2)),
+  constraint ck_right_or_wrong_question_question_level check (question_level in (0,1,2,3)),
   constraint pk_right_or_wrong_question primary key (question_id))
 ;
 
